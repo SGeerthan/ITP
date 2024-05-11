@@ -1,0 +1,319 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color:rgb(253, 253, 254) ;
+}
+
+.container{
+  padding:10px;
+  max-width: 1000px;
+  margin: 50px auto;
+  justify-content: center;
+}
+.btn{
+  border:none;
+  padding:7px 15px;
+  font-size:18px ;
+  border-radius: 5px;
+}
+
+.btn-add{
+  background: #194064;
+  color:white;
+  cursor:pointer;
+}
+
+.addContainer{
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
+  left:0;
+  right:0;
+  bottom:0;
+  top:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.addContainer form{
+    width: 420px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 40px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    border-radius:5px;
+}
+.addContainer form label{
+  font-size: 18px;
+}
+
+.addContainer form input{
+  font-size: 18px;
+  padding: 5px;
+  margin-top:5px ;
+  margin-bottom: 10px;
+}
+
+.addContainer form button{
+  border:none;
+  padding:7px 15px;
+  font-size:18px ;
+  border-radius: 5px;
+  background-color: royalblue;
+  color:white;
+  margin-top: 20px;
+  font-weight:10% ;
+}
+
+.addContainer form .close-btn{
+  margin-left: auto;
+  font-size: 18px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.tableContainer{
+  margin-top: 50px;
+  /* box-shadow: 5px 5px 10px rgba(0,0,0,0.2); */
+  border-radius: 10px;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.tableContainer table thead tr{
+  background-color: #f0eaea;
+}
+
+.tableContainer table thead tr th,
+.tableContainer table tbody tr td{
+  min-width: 200px;
+  padding: 7px;
+  text-align: center;
+
+}
+.tableContainer table tbody tr{
+  border: 1px solid #c9c5c2;
+}
+.tableContainer table tbody tr td{
+  border-bottom: 1px solid #c9c5c2;
+}
+
+.btn-edit,
+.btn-delete{
+  font-size: 16px;
+  padding: 5px 10px;
+  margin: 0px 10px;
+}
+
+.btn-edit{
+  background-color: #3190e4;
+  color: white;
+}
+
+.btn-delete{
+  background-color: #3190e4;
+  color: white;
+}
+
+.inquiryMessage {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  height: 360px; /* Adjust as needed */
+  width: 400px;
+}
+
+.inquiryMessage form {
+  border: 1px solid #ccc; /* Border color and width */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 8px; /* Adjust border radius as needed */
+  max-width: 400px; /* Adjust maximum width as needed */
+  width: 100%;
+}
+
+.inquiryMessage label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.inquiryMessage input[type="text"],
+.inquiryMessage input[type="email"],
+.inquiryMessage textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc; /* Input border color */
+  border-radius: 4px; /* Input border radius */
+}
+
+.inquiryMessage input[type="submit"] {
+  background-color: #007bff; /* Submit button background color */
+  color: #fff; /* Submit button text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.inquiryMessage input[type="submit"]:hover {
+  background-color: #0056b3; /* Submit button background color on hover */
+}
+
+.analytic{
+  width: 200px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  background-color: rgb(255, 255, 255);
+  transition: transform 0.3s ease; /* Add transition for smooth zoom effect */
+  border-radius: 7px;
+}
+.analytic:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+  box-shadow: 0 0 10px 5px lightblue;
+}
+
+.text-message-container {
+  padding-top:100px ;
+  height: 300px;
+  width: 500px; 
+  background-color: #f0f0f0; /* Light gray background */
+  padding: 20px; /* Add some padding for spacing */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  margin-right: 100px; /* Add space between the containers */
+}
+
+
+.text-message-container p {
+  font-size: 16px; /* Adjust font size as needed */
+  color: #333; /* Dark gray text color */
+  line-height: 1.5; /* Adjust line height for readability */
+  padding: auto;
+  padding-top: 55px;
+}
+
+.text-message-container a {
+  color: #007bff; /* Blue color for links */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.text-message-container a:hover {
+  text-decoration: underline; /* Underline links on hover */
+}
+
+.container-wrapper {
+  display: flex; /* Use flexbox */
+  padding-top: 10px;
+  padding-left: 10px;
+  justify-content: center;
+}
+.report{
+  background-color: gainsboro;
+  padding: 1rem;
+  float:right;
+  border: none;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .reportPayment, .reportPayment * {
+    visibility: visible;
+  }
+  .reportPayment {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .reportNew {
+    display: none;
+  }
+}
+
+.reportNew{
+  display: block;
+  margin: 0 auto;
+  border: none;
+  margin-top: 30px;
+  width: 250px;
+  height: 70px;
+  padding: 1rem;
+  float: right;
+  margin-right: 93px;
+}
+
+.search {
+  margin-top: 20px;
+  justify-content: left;
+}
+
+.search input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: space-between;
+  margin: 0 60px;
+}
+
+.analytic {
+
+  padding: 2rem 3rem ;
+  border-radius: 1rem;
+  color: black;
+  background-image: url('./components/ewallet.jpg');
+  background-size: 100% auto; 
+  background-position: center;
+  background-repeat: no-repeat; 
+  /* background-color: rgb(144, 205, 225); */
+  justify-content: space-evenly;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+}
+
+.analytic .design {
+  display: flex;
+  align-items: center;
+}
+
+.analytic .design .action {
+  margin-left: 10px;
+}
+
+.analytic .transfer {
+  margin-top: 40px;
+  margin-left: 15px;
+  color: rgb(255, 250, 250);
+}
+
+.analytic .money {
+  margin-top: 20px;
+  margin-left: 15px;
+  color: rgb(255, 250, 250);
+}
+

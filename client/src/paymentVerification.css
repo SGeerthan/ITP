@@ -1,0 +1,39 @@
+.payment-form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.payment-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.payment-form input[type="text"],
+.payment-form input[type="number"],
+.payment-form input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.payment-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.payment-form button:hover {
+  background-color: #0056b3;
+}
+
+.status {
+  margin-top: 10px;
+  font-weight: bold;
+  color: red;
+}
