@@ -33,7 +33,7 @@ const BalanceUI = ({ deposited,totalCost, cateringExpenses, otherExpenses,totalP
           <h6>Available <br/>Balance</h6>
         </div>
         <div className="money">
-          <h5>Rs.1200</h5>
+          <h5>Rs.</h5>
         </div>
       </div>
       <div className="analytic">
@@ -53,7 +53,7 @@ const BalanceUI = ({ deposited,totalCost, cateringExpenses, otherExpenses,totalP
           <h6>Catering Expenses</h6>
         </div>
         <div className="money">
-          <h5>Rs.1500</h5>
+          <h5>Rs.</h5>
         </div>
       </div>
       <div className="analytic">

@@ -7,6 +7,8 @@ import jsPDF from 'jspdf';
 import BalanceUI from '../components/balanceUI'
 import Footer from '../components/footer'
 import InquiryMessage from '../components/inquiryMessage'
+import brand from "../components/brand.jpg";
+
 
 axios.defaults.baseURL = "http://localhost:8000/"
 
@@ -106,9 +108,11 @@ useEffect(()=>{
   //report generate
     const downloadPDF = () => {
       const input = pdfRef.current;
+   
     
       html2canvas(input).then((canvas) => {
         const doc = new jsPDF();
+        doc.addImage(brand, "JPEG", 180, 2, 20, 20);
         doc.text('Filtered Personal Expenses Details', 10, 10);
         let yPos = 20;
         let rowCount = 1;

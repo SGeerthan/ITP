@@ -1,160 +1,181 @@
-import "../paymentVerification.css";
-import React, { useState } from "react";
-import Footer from '../components/footer'
-import Navbar from '../components/Navbar'
+// import React, { useState } from "react";
+// import axios from "axios";
+// import "../css/register.css";
+// import Navbar3 from "../components/Navbar3";
+// import Footer from "../components/Footer";
 
-const PaymentVerification = () => {
-  const [studentName, setStudentName] = useState("");
-  const [nicNumber, setNicNumber] = useState("");
-  const [accountNumber, setAccountNumber] = useState("");
-  const [bank, setBank] = useState("");
-  const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("");
-  const [status, setStatus] = useState("");
+// const PaymentVerification = () => {
+//   const [formData, setFormData] = useState({
+//     studentName: "",
+//     nicNumber: "",
+//     accountNumber: "",
+//     bank: "",
+//     amount: "",
+//     date: "",
+//   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+//   const [validationErrors, setValidationErrors] = useState({
+//     studentName: "",
+//     nicNumber: "",
+//     accountNumber: "",
+//     bank: "",
+//     amount: "",
+//     date: "",
+//   });
 
-    const onlyAlphabets = /^[A-Za-z\s]+$/;
-    const onlyNumbers = /^[0-9]+$/;
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
 
-    if (
-      studentName.match(onlyAlphabets) &&
-      bank.match(onlyAlphabets) &&
-      nicNumber.match(onlyNumbers) &&
-      nicNumber.length === 10 &&
-      accountNumber.match(onlyNumbers) &&
-      accountNumber.length === 12 &&
-      parseFloat(amount) > 0 &&
-      new Date(date) <= new Date()
-    ) {
-      setStatus("Verification details submitted.");
-      alert(status);
-    } else {
-      setStatus("Please fill in all the fields correctly.");
-      alert(status);
-    }
-  };
+//     // Validation for different fields
+//     let newValue = value;
+//     let error = "";
 
-  
+//     if (name === "studentName" || name === "bank") {
+//       newValue = value.replace(/[^a-zA-Z\s]/g, "");
+//       if (!newValue) {
+//         error = "Please enter a valid name";
+//       }
+//     } else if (name === "nicNumber" || name === "accountNumber") {
+//       newValue = value.replace(/[^0-9]/g, "");
+//       if (!newValue || newValue.length > 10) {
+//         error = "Please enter a valid input";
+//       }
+//     } else if (name === "amount") {
+//       newValue = value.replace(/[^0-9.]/g, "");
+//       if (!newValue) {
+//         error = "Please enter a valid amount";
+//       }
+//     }
 
-  return (
-    <>
-    <Navbar/>
-    <div>
-      <center>
-        <h3>Payment Verification Form</h3>{" "}
-      </center>
-      <form onSubmit={handleSubmit} className="payment-form">
-        <label>
-          Student Name:
-          <input
-            type="text"
-            value={studentName}
-            onChange={(e) => setStudentName(e.target.value)}
-            required
-          />
-        </label>
-        <p className="alert">
-          {studentName.length > 0 &&
-            !studentName.match(/^[A-Za-z\s]+$/) &&
-            "Only alphabets are allowed"}
-        </p>
-        <label>
-          NIC Number:
-          <input
-            type="text"
-            value={nicNumber}
-            onChange={(e) => {
-              if (/^\d+$/.test(e.target.value) || e.target.value === "") {
-                setNicNumber(e.target.value);
-              }
-            }}
-            maxLength="10"
-            required
-          />
-        </label>
-        <p className="alert">
-          {nicNumber.length > 0 &&
-            (!nicNumber.match(/^[0-9]+$/) || nicNumber.length !== 10) &&
-            "NIC number should be a 10-digit number"}
-        </p>
-        <label>
-          Account Number:
-          <input
-            type="text"
-            value={accountNumber}
-            onChange={(e) => {
-              if (/^\d+$/.test(e.target.value) || e.target.value === "") {
-                setAccountNumber(e.target.value);
-              }
-            }}
-            maxLength="12"
-            required
-          />
-        </label>
-        <p className="alert">
-          {accountNumber.length > 0 &&
-            (!accountNumber.match(/^[0-9]+$/) || accountNumber.length !== 12) &&
-            "Account number should be a 12-digit number"}
-        </p>
-        <label>
-          Bank:
-          <input
-            type="text"
-            value={bank}
-            onChange={(e) => {
-              if (
-                /^[A-Za-z\s]+$/.test(e.target.value) ||
-                e.target.value === ""
-              ) {
-                setBank(e.target.value);
-              }
-            }}
-            required
-          />
-        </label>
-        <p className="alert">
-          {bank.length > 0 &&
-            !bank.match(/^[A-Za-z\s]+$/) &&
-            "Only alphabets are allowed"}
-        </p>
-        <label>
-          Amount :
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            required
-          />
-        </label>
-        <p className="alert">
-          {amount.length > 0 &&
-            (isNaN(parseFloat(amount)) || parseFloat(amount) <= 0) &&
-            "Amount should be a positive number"}
-        </p>
-        <label>
-          Date:
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            max={new Date().toISOString().split("T")[0]}
-            required
-          />
-        </label>
-        <p className="alert">
-          {date.length > 0 &&
-            new Date(date) > new Date() &&
-            "Date cannot be in the future"}
-        </p>
-        <button type="submit">Submit</button>
-        <p className="status">{status}</p>
-      </form>
-    </div>
-    <Footer/>
-    </>
-  );
-};
+//     setValidationErrors({ ...validationErrors, [name]: error });
+//     setFormData({ ...formData, [name]: newValue });
+//   };
 
-export default PaymentVerification;
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     try {
+//       const response = await axios.post("/api/payment/verify", formData);
+//       console.log(response.data);
+//       if (response.data.success) {
+//         window.alert("Payment details added successfully!");
+//         setFormData({
+//           studentName: "",
+//           nicNumber: "",
+//           accountNumber: "",
+//           bank: "",
+//           amount: "",
+//           date: "",
+//         });
+//       }
+//     } catch (error) {
+//       console.error("Error submitting payment details:", error);
+//       // Handle error message
+//     }
+//   };
+
+//   return (
+//     <>
+//       <Navbar3 />
+//       <br />
+//       <br />
+//       <div className="container">
+//         <form onSubmit={handleSubmit} className="payment-form">
+//           <label>
+//             Student Name:
+//             <input
+//               type="text"
+//               name="studentName"
+//               value={formData.studentName}
+//               onChange={handleChange}
+//               required
+//             />
+//             <p className="error">{validationErrors.studentName}</p>
+//           </label>
+//           <br />
+//           <label>
+//             NIC Number:
+//             <input
+//               type="text"
+//               name="nicNumber"
+//               value={formData.nicNumber}
+//               onChange={handleChange}
+//               maxLength="10"
+//               required
+//             />
+//             <p className="error">{validationErrors.nicNumber}</p>
+//           </label>
+//           <br />
+//           <label>
+//             Account Number:
+//             <input
+//               type="text"
+//               name="accountNumber"
+//               value={formData.accountNumber}
+//               onChange={handleChange}
+//               maxLength="12"
+//               required
+//             />
+//             <p className="error">{validationErrors.accountNumber}</p>
+//           </label>
+//           <br />
+//           <label>
+//             Bank:
+//             <input
+//               type="text"
+//               name="bank"
+//               value={formData.bank}
+//               onChange={handleChange}
+//               required
+//             />
+//             <p className="error">{validationErrors.bank}</p>
+//           </label>
+//           <br />
+//           <label>
+//             Amount:
+//             <input
+//               type="text"
+//               name="amount"
+//               value={formData.amount}
+//               onChange={handleChange}
+//               required
+//             />
+//             <p className="error">{validationErrors.amount}</p>
+//           </label>
+//           <br />
+//           <label>
+//             Date:
+//             <input
+//               type="date"
+//               name="date"
+//               value={formData.date}
+//               onChange={handleChange}
+//               max={new Date().toISOString().split("T")[0]} // Restrict future dates
+//               required
+//             />
+//             <p className="error">{validationErrors.date}</p>
+//           </label>
+//           <br />
+//           <button type="submit">Submit</button>
+//         </form>
+//       </div>
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <br />
+//       <Footer />
+//     </>
+//   );
+// };
+
+// export default PaymentVerification;
